@@ -59,11 +59,40 @@ margin: 40px 15px 20px 20px;
 .header h2 .highlight {
   color: #e09b67 
 }
-@media screen and (max-width: 480px) {
+@media (max-width: 767px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+  }
   .card {
-    width: 20%;
+    margin: 10px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform-origin: center;
+    width: 100%;
+  }
+  .card:hover {
+    transform: rotateY(180deg);
+  }
+  .card .back {
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  .card .front {
+    backface-visibility: hidden;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
   }
 }
+
 
 /* Media Query for Other Laptops and Desktops besides Mac */
 @media only screen and (min-width: 1024px) and (max-width: 1440px) and (not (-webkit-min-device-pixel-ratio: 2)) {
